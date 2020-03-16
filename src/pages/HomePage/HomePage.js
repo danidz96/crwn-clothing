@@ -1,42 +1,12 @@
 import React from 'react';
+import Directory from '../../components/Directory/Directory';
 
-import { Wrapper, DirectoryMenu, MenuItem, Content, Title, Subtitle } from './style';
+import { Wrapper } from './style';
 
 const HomePage = () => {
 	return (
 		<Wrapper>
-			<DirectoryMenu>
-				<MenuItem>
-					<Content>
-						<Title>Title</Title>
-						<Subtitle>Subtitle</Subtitle>
-					</Content>
-				</MenuItem>
-				<MenuItem>
-					<Content>
-						<Title>Title</Title>
-						<Subtitle>Subtitle</Subtitle>
-					</Content>
-				</MenuItem>
-				<MenuItem>
-					<Content>
-						<Title>Title</Title>
-						<Subtitle>Subtitle</Subtitle>
-					</Content>
-				</MenuItem>
-				<MenuItem>
-					<Content>
-						<Title>Title</Title>
-						<Subtitle>Subtitle</Subtitle>
-					</Content>
-				</MenuItem>
-				<MenuItem>
-					<Content>
-						<Title>Title</Title>
-						<Subtitle>Subtitle</Subtitle>
-					</Content>
-				</MenuItem>
-			</DirectoryMenu>
+			<Directory />
 		</Wrapper>
 	);
 };
