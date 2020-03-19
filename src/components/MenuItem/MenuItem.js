@@ -1,11 +1,12 @@
 import React from 'react';
-import { Wrapper, Title, Subtitle, Content } from './style';
+import { Wrapper, Title, Subtitle, Content, BackgroundImage } from './style';
 
 const MenuItem = ({ title, imageUrl, size }) => {
 	return (
-		<Wrapper imageUrl={imageUrl} size={size}>
+		<Wrapper size={size}>
+			<BackgroundImage imageUrl={imageUrl} />
 			<Content>
-				<Title>{title}</Title>
+				<Title>{title.toUpperCase()}</Title>
 				<Subtitle>SHOP NOW</Subtitle>
 			</Content>
 		</Wrapper>
