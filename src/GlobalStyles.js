@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans Condensed';
     padding: 20px 60px;
   }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 export default GlobalStyle;
