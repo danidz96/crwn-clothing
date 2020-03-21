@@ -1,7 +1,8 @@
-import React from "react";
-import HomePage from "./pages/HomePage/HomePage";
-import GlobalStyles from "./GlobalStyles";
-import { Route, Switch } from "react-router-dom";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from './pages/HomePage/HomePage';
+import ShopPage from './pages/Shop/ShopPage';
+import GlobalStyles from './GlobalStyles';
 
 function App() {
   return (
@@ -9,6 +10,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <HomePage />
+        </Route>
+        <Route path="/shop">
+          <ShopPage />
         </Route>
       </Switch>
       <GlobalStyles />
