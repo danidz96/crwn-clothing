@@ -1,6 +1,6 @@
-import React from "react";
-import { Wrapper, Title, Subtitle, Content, BackgroundImage } from "./style";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { Wrapper, Title, Subtitle, Content, BackgroundImage } from './style';
+import { useHistory } from 'react-router-dom';
 
 const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
   const history = useHistory();
