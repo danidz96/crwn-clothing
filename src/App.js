@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage/HomePage';
 import ShopPage from './pages/Shop/ShopPage';
 import Header from './components/Header/Header';
 import GlobalStyles from './GlobalStyles';
+import SignInAndSignUp from './pages/SignInAndSignUp/SignInAndSignUp';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route path="/shop">
           <ShopPage />
+        </Route>
+        <Route path="/signin">
+          <SignInAndSignUp />
         </Route>
       </Switch>
       <GlobalStyles />
