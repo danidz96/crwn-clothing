@@ -1,10 +1,10 @@
 import React from 'react';
-import { Wrapper, LogoContainer, Options, OptionLink } from './styles';
+import { HeaderContainer, LogoContainer, Options, OptionLink } from './styles';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 const Header = () => {
   return (
-    <Wrapper>
+    <HeaderContainer>
       <LogoContainer to="/">
         <Logo className="logo" />
       </LogoContainer>
@@ -14,7 +14,7 @@ const Header = () => {
         <OptionLink as="div">SIGN OUT</OptionLink>
         <OptionLink to="/signin">SIGN IN</OptionLink>
       </Options>
-    </Wrapper>
+    </HeaderContainer>
   );
 };
 
