@@ -5,7 +5,7 @@ const FormInput = ({ handleChange, label, ...props }) => {
   return (
     <FormInputContainer>
       <Input onChange={handleChange} {...props} />
-      {label && <Label shrink={Boolean(props.value?.length)}>{label}</Label>}
+      {label && <Label shrink={Boolean(props.value)}>{label}</Label>}
     </FormInputContainer>
   );
 };
