@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FormInput from '../FormInput/FormInput';
 import { SignInContainer } from './styles';
+import { CustomButtonContainer } from '../CustomButton/styles';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -36,7 +37,7 @@ const SignIn = () => {
           required
         />
 
-        <input type="submit" value="Submit Form" />
+        <CustomButtonContainer type="submit">Submit Form</CustomButtonContainer>
       </form>
     </SignInContainer>
   );
