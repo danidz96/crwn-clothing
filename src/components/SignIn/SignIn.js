@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormInput from '../FormInput/FormInput';
 import { SignInContainer } from './styles';
 import { CustomButtonContainer } from '../CustomButton/styles';
+import { signInWithGoogle } from '../../firebase/utils/firebase';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -38,6 +39,9 @@ const SignIn = () => {
         />
 
         <CustomButtonContainer type="submit">Submit Form</CustomButtonContainer>
+        <CustomButtonContainer type="button" onClick={signInWithGoogle}>
+          Sign in with Google
+        </CustomButtonContainer>
       </form>
     </SignInContainer>
   );
