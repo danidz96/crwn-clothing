@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header currentUser={currentUser} />
       <Switch>
         <Route exact path="/">
           <HomePage />
