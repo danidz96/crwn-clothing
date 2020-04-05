@@ -1,10 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { HeaderContainer, LogoContainer, Options, OptionLink } from './styles';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/utils/firebase';
 import CartIcon from '../CartIcon/CartIcon';
+import CartDropdown from '../CartDropdown/CartDropdown';
+import { selectHidden } from '../../redux/cart/cartSlice';
 
 const Header = ({ currentUser }) => {
+  const hidden = useSelector(selectHidden);
   return (
     <HeaderContainer>
       <LogoContainer to="/">
@@ -21,6 +25,7 @@ const Header = ({ currentUser }) => {
           <OptionLink to="/signin">SIGN IN</OptionLink>
         )}
         <CartIcon />
+        {!hidden && <CartDropdown />}
       </Options>
     </HeaderContainer>
   );
