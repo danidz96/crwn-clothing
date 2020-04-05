@@ -2,6 +2,7 @@ import React from 'react';
 import { HeaderContainer, LogoContainer, Options, OptionLink } from './styles';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/utils/firebase';
+import CartIcon from '../CartIcon/CartIcon';
 
 const Header = ({ currentUser }) => {
   return (
@@ -19,6 +20,7 @@ const Header = ({ currentUser }) => {
         ) : (
           <OptionLink to="/signin">SIGN IN</OptionLink>
         )}
+        <CartIcon />
       </Options>
     </HeaderContainer>
   );
