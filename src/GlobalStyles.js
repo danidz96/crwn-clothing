@@ -34,6 +34,27 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: black;
   }
+
+  ::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgba(0,0,0,0);
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+}
+::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: rgba(0,0,0,0.5);
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0,0,0,0.61);
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+}
 `;
 
 export default GlobalStyle;
