@@ -14,7 +14,7 @@ const CartDropdown = () => {
     <CartDropdownContainer>
       <CartItemsContainer>
         {cartItems.map(cartItem => (
-          <CartItem item={cartItem} />
+          <CartItem key={cartItem.id} item={cartItem} />
         ))}
       </CartItemsContainer>
       <CartDropdownButton>GO TO CHECKOUT</CartDropdownButton>
