@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addItemToCart } from './utils/cart';
+import { addItemToCart, getCartItemsCount } from './utils/cart';
 
 export const cartSlice = createSlice({
   name: 'cart',
@@ -20,6 +20,8 @@ export const cartSlice = createSlice({
 
 export const selectHidden = state => state.cart.hidden;
 export const selectCartItems = state => state.cart.cartItems;
+export const selectItemsCount = state =>
+  getCartItemsCount(state.cart.cartItems);
 
 export const { toggleCartHidden, addItem } = cartSlice.actions;
 
