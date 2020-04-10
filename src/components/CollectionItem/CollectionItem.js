@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../redux/cart/cartSlice';
 import {
   CollectionItemContainer,
   Image,
@@ -8,7 +10,10 @@ import {
   CollectionItemButton,
 } from './style';
 
-const CollectionItem = ({ id, name, price, imageUrl }) => {
+const CollectionItem = ({ item }) => {
+  const { id, name, price, imageUrl } = item;
+  const dispatch = useDispatch();
+
   return (
     <CollectionItemContainer>
       <Image imageUrl={imageUrl} />
@@ -16,7 +21,9 @@ const CollectionItem = ({ id, name, price, imageUrl }) => {
         <Name>{name}</Name>
         <Price>{price}</Price>
       </Footer>
-      <CollectionItemButton inverted> Add to cart </CollectionItemButton>
+      <CollectionItemButton onClick={() => dispatch(addItem(item))} inverted>
+        Add to cart
+      </CollectionItemButton>
     </CollectionItemContainer>
   );
 };
