@@ -5,10 +5,10 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/utils/firebase';
 import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
-import { selectHidden } from '../../redux/cart/cartSlice';
+import { selectCartHidden } from '../../redux/cart/selectors/index';
 
 const Header = ({ currentUser }) => {
-  const hidden = useSelector(selectHidden);
+  const hidden = useSelector(selectCartHidden);
   return (
     <HeaderContainer>
       <LogoContainer to="/">
