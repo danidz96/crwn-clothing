@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { auth, createUserProfileDocument } from '../firebase/utils/firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentUser, setCurrentUser } from '../redux/user/userSlice';
+import { setCurrentUser } from '../redux/user/userSlice';
+import { selectCurrentUser } from '../redux/user/selector/index';
 
 export const useAuth = () => {
   const dispatch = useDispatch();
