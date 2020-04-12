@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import GlobalStyles from './GlobalStyles';
 import SignInAndSignUp from './pages/SignInAndSignUp/SignInAndSignUp';
 import { useAuth } from './hooks/useAuth';
+import CheckoutPage from './pages/Checkout/CheckoutPage';
 
 function App() {
   const currentUser = useAuth();
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/shop">
           <ShopPage />
+        </Route>
+        <Route exact path="/checkout">
+          <CheckoutPage />
         </Route>
         <Route exact path="/signin">
           {currentUser ? <Redirect to="/" /> : <SignInAndSignUp />}

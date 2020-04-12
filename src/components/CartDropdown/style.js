@@ -25,3 +25,8 @@ export const CartItemsContainer = styled.div`
   height: 240px;
   overflow: scroll;
 `;
+
+export const EmptyMessageContainer = styled.span`
+  font-size: 18px;
+  margin: 50px auto;
+`;
