@@ -19,7 +19,7 @@ export const CollectionItemButton = styled(CustomButton)`
 `;
 
 export const CollectionItemContainer = styled.div`
-  width: 22%;
+  width: 22vw;
   display: flex;
   flex-direction: column;
   height: 350px;
