@@ -14,18 +14,16 @@ function App() {
     <>
       <Header currentUser={currentUser} />
       <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route path="/shop">
-          <ShopPage />
-        </Route>
-        <Route exact path="/checkout">
-          <CheckoutPage />
-        </Route>
-        <Route exact path="/signin">
-          {currentUser ? <Redirect to="/" /> : <SignInAndSignUp />}
-        </Route>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/shop" component={ShopPage} />
+        <Route exact path="/checkout" component={CheckoutPage} />
+        <Route
+          exact
+          path="/signin"
+          render={() =>
+            currentUser ? <Redirect to="/" /> : <SignInAndSignUp />
+          }
+        />
       </Switch>
       <GlobalStyles />
     </>
