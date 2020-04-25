@@ -11,6 +11,7 @@ import {
   HeaderBlockContainer,
   TotalContainer,
 } from './style';
+import StripeCheckoutButton from '../../components/StripeButton/StripeButton';
 
 const CheckoutPage = () => {
   const cartItems = useSelector(selectCartItems);
@@ -38,6 +39,7 @@ const CheckoutPage = () => {
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
       <TotalContainer>TOTAL: ${total}</TotalContainer>
+      <StripeCheckoutButton price={total} />
     </CheckoutPageContainer>
   );
 };
