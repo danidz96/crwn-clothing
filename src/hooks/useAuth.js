@@ -28,6 +28,5 @@ export const useAuth = () => {
     };
   }, [dispatch]);
 
-  console.log(currentUser);
   return currentUser;
 };
