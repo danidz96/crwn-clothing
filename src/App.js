@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     addCollectionAndDocuments(
-      'collection',
+      'collections',
       collectionArray.map(({ title, items }) => ({ title, items }))
     );
   }, [collectionArray]);
