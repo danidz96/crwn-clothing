@@ -1,5 +1,5 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import firebase from 'firebase';
+// import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
@@ -13,10 +13,15 @@ const config = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
+firebase.initializeApp(config);
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
-  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const userRef = firebase.firestore().doc(`users/${userAuth.uid}`);
 
   const snapShot = await userRef.get();
 
@@ -38,10 +43,21 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
-firebase.initializeApp(config);
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = firestore.collection(collectionKey);
 
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+  const batch = firestore.batch();
+  objectsToAdd.forEach(obj => {
+    // get a new empty document reference in the collection () makes Firestore generate the key
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+  });
+
+  return await batch.commit();
+};
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ promp: 'select_account' });
