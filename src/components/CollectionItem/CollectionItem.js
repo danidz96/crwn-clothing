@@ -11,7 +11,7 @@ import {
 } from './style';
 
 const CollectionItem = ({ item }) => {
-  const { id, name, price, imageUrl } = item;
+  const { name, price, imageUrl } = item;
   const dispatch = useDispatch();
 
   return (
