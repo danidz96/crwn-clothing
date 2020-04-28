@@ -13,14 +13,14 @@ import { addCollectionAndDocuments } from './firebase/utils/firebase';
 
 function App() {
   const currentUser = useAuth();
-  const collectionArray = useSelector(selectCollectionsForPreview);
+  // const collectionArray = useSelector(selectCollectionsForPreview);
 
-  useEffect(() => {
-    addCollectionAndDocuments(
-      'collections',
-      collectionArray.map(({ title, items }) => ({ title, items }))
-    );
-  }, [collectionArray]);
+  // useEffect(() => {
+  //   addCollectionAndDocuments(
+  //     'collections',
+  //     collectionArray.map(({ title, items }) => ({ title, items }))
+  //   );
+  // }, []);
 
   return (
     <>

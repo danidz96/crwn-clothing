@@ -8,6 +8,14 @@ const INITIAL_STORE = {
 export const shopSlice = createSlice({
   name: 'shop',
   initialState: INITIAL_STORE,
+
+  reducers: {
+    updateCollections: (state, { payload }) => {
+      state.collections = payload;
+    },
+  },
 });
+
+export const { updateCollections } = shopSlice.actions;
 
 export default shopSlice.reducer;
