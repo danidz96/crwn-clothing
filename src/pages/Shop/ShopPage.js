@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route } from 'react-router-dom';
 import CollectionsOverview from '../../components/CollectionsOverview/CollectionsOverview';
 import CollectionPage from '../Collection/CollectionPage';
-import { updateCollections } from '../../redux/shop/shopSlice';
-import {
-  firestore,
-  convertCollectionsSnapshotToMap,
-} from '../../firebase/utils/firebase';
+import { fetchCollections } from '../../redux/shop/shopSlice';
+import { selectIsCollectionLoading } from '../../redux/shop/selectors';
 
 const ShopPage = () => {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
+  const isLoading = useSelector(selectIsCollectionLoading);
   useEffect(() => {
-    const collectionRef = firestore.collection('collections');
-    const unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
-      const collectionsMap = await convertCollectionsSnapshotToMap(snapshot);
-      dispatch(updateCollections(collectionsMap));
-      setIsLoading(false);
-    });
+    dispatch(fetchCollections());
   }, [dispatch]);
 
   return (
