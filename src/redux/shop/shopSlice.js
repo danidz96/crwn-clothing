@@ -1,20 +1,40 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchCollectionsFromFirebase } from './utils';
 
 const INITIAL_STORE = {
-  collections: null,
+  collections: [],
+  isLoading: false,
+  error: '',
 };
+
+export const fetchCollections = createAsyncThunk(
+  'shop/fetchingCollections',
+  async () => {
+    const collections = await fetchCollectionsFromFirebase();
+    return collections;
+  }
+);
 
 export const shopSlice = createSlice({
   name: 'shop',
   initialState: INITIAL_STORE,
 
-  reducers: {
-    updateCollections: (state, { payload }) => {
-      state.collections = payload;
+  reducers: {},
+
+  extraReducers: {
+    [fetchCollections.pending]: state => {
+      state.isLoading = true;
+    },
+    [fetchCollections.fulfilled]: (state, action) => {
+      state.collections = action.payload;
+      state.isLoading = false;
+      state.error = false;
+    },
+    [fetchCollections.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.error;
     },
   },
 });
-
-export const { updateCollections } = shopSlice.actions;
 
 export default shopSlice.reducer;
