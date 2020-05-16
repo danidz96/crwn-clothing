@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchCollectionsFromFirebase } from './utils';
 
 const INITIAL_STORE = {
-  collections: [],
+  collections: {},
   isLoading: false,
   error: '',
 };

@@ -4,11 +4,15 @@ import { Route } from 'react-router-dom';
 import CollectionsOverview from '../../components/CollectionsOverview/CollectionsOverview';
 import CollectionPage from '../Collection/CollectionPage';
 import { fetchCollections } from '../../redux/shop/shopSlice';
-import { selectIsCollectionLoading } from '../../redux/shop/selectors';
+import {
+  selectIsCollectionLoading,
+  selectIsCollectionsLoaded,
+} from '../../redux/shop/selectors';
 
 const ShopPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsCollectionLoading);
+  const isCollectionsLoaded = useSelector(selectIsCollectionsLoaded);
   useEffect(() => {
     dispatch(fetchCollections());
   }, [dispatch]);
@@ -16,10 +20,10 @@ const ShopPage = () => {
   return (
     <>
       <Route exact path="/shop">
-        {isLoading ? 'Loading...' : <CollectionsOverview />}
+        {!isCollectionsLoaded ? 'Loading...' : <CollectionsOverview />}
       </Route>
       <Route path="/shop/:collectionId">
-        {isLoading ? 'Loading...' : <CollectionPage />}
+        {!isCollectionsLoaded ? 'Loading...' : <CollectionPage />}
       </Route>
     </>
   );
